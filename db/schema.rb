@@ -11,7 +11,60 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140825015650) do
+ActiveRecord::Schema.define(version: 20140825221642) do
+
+  create_table "artists", force: true do |t|
+    t.string   "name"
+    t.string   "website"
+    t.string   "twitter"
+    t.string   "facebook"
+    t.string   "image_link"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "candidates", force: true do |t|
+    t.integer  "song_id"
+    t.integer  "contest_id"
+    t.integer  "points"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "contests", force: true do |t|
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "start_date"
+    t.datetime "end_date"
+  end
+
+  create_table "entries", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "contest_id"
+    t.string   "entryname"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rankings", force: true do |t|
+    t.integer  "entry_id"
+    t.integer  "song_id"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "songs", force: true do |t|
+    t.string   "title"
+    t.string   "embed_code"
+    t.integer  "artist_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "bandcamp_id"
+    t.string   "album_number"
+    t.string   "track_number"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -28,6 +81,8 @@ ActiveRecord::Schema.define(version: 20140825015650) do
     t.datetime "updated_at"
     t.string   "name"
     t.integer  "role"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

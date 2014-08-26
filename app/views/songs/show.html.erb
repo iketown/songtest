@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @song.title %>
+</p>
+
+<p>
+  <strong>Embed code:</strong>
+  <%= raw @song.embed_code %>
+</p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @song.artist_id %>
+</p>
+
+<%= link_to 'Edit', edit_song_path(@song) %> |
+<%= link_to 'Back', songs_path %>
+
+<hr>
+
+<h2>attempt to create embed</h2>
+
+<%= raw @song.embedify %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Song:</strong>
+  <%= @candidate.song %>
+</p>
+
+<p>
+  <strong>Contest:</strong>
+  <%= @candidate.contest %>
+</p>
+
+<p>
+  <strong>Points:</strong>
+  <%= @candidate.points %>
+</p>
+
+<%= link_to 'Edit', edit_candidate_path(@candidate) %> |
+<%= link_to 'Back', candidates_path %>

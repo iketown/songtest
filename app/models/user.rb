@@ -1,9 +1,11 @@
 class User < ActiveRecord::Base
-  enum role: [:user, :vip, :admin]
+  enum role: [:player, :artist, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
+  has_many :entries
+
   def set_default_role
-    self.role ||= :user
+    self.role ||= :player
   end
 
   # Include default devise modules. Others available are:

@@ -1,2 +1,8 @@
 <h3>Welcome</h3>
 <p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
+
+<% if current_user %>
+<p> you are <strong><%= current_user.name %></p></strong>
+
+<p> your role is <strong><%= current_user.role %> </p></strong>
+<% end %>
